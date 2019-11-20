@@ -1,0 +1,95 @@
+---
+title: "FIFA_Analysis"
+author: "CrystalMeth"
+date: "Nov 19, 2019"
+output:
+  html_document:
+    number_sectiond: yes
+    toc: yes
+    toc_float:
+      collapsed: no
+  word_document:
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(include = F)
+options(scientific=T, digits = 3) 
+```
+
+```{r basicfcn, include=F}
+# can add quietly=T option to the require() function
+loadPkg = function(x) { if (!require(x,character.only=T, quietly =T)) { install.packages(x,dep=T,repos="http://cran.us.r-project.org"); if(!require(x,character.only=T)) stop("Package not found") } }
+```
+
+### FIFA Dataset
+
+The FIFA dataset was collected in outerspace blhablah blah. Describe the dataset, where it came from, interesting topics.
+
+```{r Q1, echo=FALSE, include=TRUE}
+data <- read.csv("data.csv", check.names = FALSE, stringsAsFactors = FALSE)
+```
+
+#### Preparing and exploring the data
+```{r echo=FALSE, include=TRUE}
+str(data)
+summary(data)
+head(data)
+```
+
+### Smart Question 1 (BIN)
+#### How can we predict a dream team by determining the optimal skills(strength, heading, kick, jump) and vcharacteristics( leftfooted, bodytype, vision)in certain positions? And who would be the best players for the position?
+
+```{r S1, echo=FALSE, include=TRUE}
+#TEST used: Classification (KNN, Decision trees)
+```
+
+
+### Smart Question 2 (RUSSELL)
+#### What variables contribute most to a player’s amount of penalties? How does Aggression, Composure affect the number of Penalties they receive 
+```{r S2, echo=FALSE, include=TRUE}
+
+```
+
+
+
+
+### Smart Question 3 (CURTIS)
+#### What variables contribute the most to a goalkeeper’s potential? Age, physical factors, current gk skills, etc... 
+```{r S3, echo=FALSE, include=TRUE}
+#TEST used:  multivariate regression
+
+```
+
+
+
+
+### Smart Question 4 (GREGG)
+#### How do specific Skill Sets/ Characteristics affect a players wage? How about value? Can we say Skills are a good predictor of Wage and value?
+```{r S4, echo=FALSE, include=TRUE}
+#TEST used: 
+#Wage - do PCA/PCR to find out the attributes that explain it the most
+#Value- do PCA/PCR to find out the attributes that explain it the most
+#Skill/Characteristics - classify the most important attributes into skills and characteristics
+#Make sure p values are good
+#Use the model to predict. Use multvariable regression
+
+
+```
+
+
+
+
+### Smart Question 5 (JAY)
+#### How do physical factors (age, preferred foot, overall skill, international reputation, position in the field, weight, and height) help the soccer professionals to get wage for higher 100,000 Euro per week?
+```{r S5, echo=FALSE, include=TRUE}
+#Wage(Factor) – 1 (Higher 100k euro per week), 0 (lower 100k euro per week).
+#Age (Integer)
+#Foot (Factor)
+#Skill (Integer)
+#Weight (Integer)
+#Height (Integer)
+#International reputation (Factor) – 5 level.
+#Position (Factor) – 4 types, including Goalkeeper, defense, midfield, and attack.
+
+```
