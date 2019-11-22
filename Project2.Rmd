@@ -48,7 +48,24 @@ head(data)
 ### Smart Question 2 (RUSSELL)
 #### What variables contribute most to a player’s amount of penalties? How does Aggression, Composure affect the number of Penalties they receive 
 ```{r S2, echo=FALSE, include=TRUE}
+loadPkg("pls")
+#drop NAs
+fifa <- na.omit(data)
 
+#keep numeric variables only
+fifa2 <- fifa[, !sapply(fifa, is.character)]
+str(fifa2)
+
+#drop ID variables
+fifa3 <- fifa2[, c(-1, -2)]
+
+#center the data
+#fifascale <- prcomp(fifa2, scale=TRUE)
+#summary(fifascale)
+
+#PCA model
+pcrscale <- pcr(Aggression ~., data=fifa3, scale=TRUE, validation="CV")
+summary(pcrscale)
 ```
 
 
